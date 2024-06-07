@@ -18,7 +18,7 @@ func NewPlayData(xSize, ySize int) *PlayData {
 		ResultBoard: NewResultBoard(xSize, ySize),
 		xSize:       xSize,
 		ySize:       ySize,
-		nextStone:   -2,
+		nextStone:   -1,
 	}
 }
 
@@ -29,13 +29,13 @@ func (pd *PlayData) GetSize() (xSize, ySize int) {
 func (pd *PlayData) GetNextStone() int {
 	switch pd.nextStone {
 	case -2:
-		return 2
-	case -1:
 		return 1
+	case -1:
+		return 2
 	case 1:
-		return -2
-	case 2:
 		return -1
+	case 2:
+		return -2
 	}
 	return 0
 }

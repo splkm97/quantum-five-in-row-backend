@@ -24,9 +24,9 @@ func main() {
 	e.Use(ginlogrus.Logger(log), gin.Recovery())
 	e.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"*"},
-		AllowMethods:     []string{"GET", "POST", "OPTIONS"},
-		AllowHeaders:     []string{"Origin"},
+		AllowMethods:     []string{"GET", "POST"},
 		ExposeHeaders:    []string{"Content-Length"},
+		AllowHeaders:     []string{"content-type, accept"},
 		AllowCredentials: true,
 		AllowOriginFunc: func(origin string) bool {
 			return origin == "*"
